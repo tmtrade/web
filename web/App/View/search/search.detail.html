@@ -1,0 +1,177 @@
+<? require(ViewDir.'/header.html'); ?>
+<script src="<?=StaticDir?>1.2/js/scroll.js?v=<?=$static_version?>"></script>
+<link rel="stylesheet" type="text/css" href="<?=StaticDir?>1.2/css/list.css?v=<?=$static_version?>" />
+<link rel="stylesheet" href="<?=StaticDir?>1.2/css/mj-index.css?v=<?=$static_version?>"/>
+<link rel="stylesheet" href="<?=StaticDir?>1.2/css/ms-filter.css?v=<?=$static_version?>"/>
+ <a class="detail-nav" id="tip" style="display:none;"><点击查看详情</a>
+<div class="w1180">
+
+    <div class="sbhwjg" style="margin-top: 15px;">
+        <div class="sbhwjg-main">
+            <h3><?=$title?></h3>
+            <font>
+                建议你：<br/>
+                1 . 检查<lable>商标号</lable>，确保输入<lable>正确</lable>。<br/>
+                2 . <a javascript="void(0);" onclick="goChat();">联系我们</a> 让我们帮你找吧！<br/>
+                <span><img src="<?=StaticDir?>1.2/images/wjg-ico.png">3秒极速匹配</span> <span><img src="<?=StaticDir?>1.2/images/wjg-ico.png">1对1专业服务</span>
+            </font>
+
+        </div>
+    </div>
+    <div class="wjg-cnxh">
+        <label class="fl">猜你喜欢</label>
+        <span  class="fr exchange" data-num=0 onclick="goMore('<?=$moreUrl?>');return false;">
+            <img src="<?=StaticDir?>1.2/images/us-icon2.png">
+            查看更多
+        </span>
+    </div>
+    <script type="text/javascript">
+        function goMore(url)
+        {
+            window.location.href = url;
+        }
+    </script>
+    <!--<script type="text/javascript">-->
+        <!--var ocontuls=$(".ms-filtersList ul.f-clearfix");-->
+        <!--$(".exchange").click(function(){-->
+            <!--ocontuls.hide();-->
+            <!--var datanum=$(this).attr("data-num");-->
+            <!--if(datanum==0){-->
+
+                <!--ocontuls.eq(0).show();-->
+                <!--$(this).attr("data-num",1);-->
+            <!--}-->
+            <!--if(datanum==1){-->
+                <!--ocontuls.eq(1).show();-->
+                <!--$(this).attr("data-num",2);-->
+            <!--}-->
+            <!--if(datanum==2){-->
+                <!--ocontuls.eq(2).show();-->
+                <!--$(this).attr("data-num",0);-->
+            <!--}-->
+        <!--})-->
+    <!--</script>-->
+    <!-- ms-filtersList start -->
+    <div class="ms-filtersList">
+        <ul class="f-clearfix">
+        <?foreach ($tmList as $k => $v) {?>
+            <?$_c_ = explode(',', $v['class']);
+            if ( count($_c_) < 2 ){?>
+            <li>
+                <input class="xunjia_data" type="hidden" tid="<?=$v['tid']?>" data_class="<?=$v['class']?>" number="<?=$v['number']?>" remarks="<?echo '商标号：'.$v['number'].';商标名称：'.$v['name']?>">
+                <div>
+                    <div class="ms-filterCenter">
+                        <a href="javascript:void(0);" tnumber="<?=$v['number']?>" class="ms-collect <?if($v['isLook']=='1'){echo 'cur';}?>" addmsg="<?=$v['name']?>" webid="12"><i class="us-icon us-icon20"></i></a>
+                        <span class="ms-filtersImg"><a href="<?=$v['viewUrl']?>" target="_blank" webid="10"><img src="<?=$v['imgUrl']?>" onerror="this.src='<?=StaticDir?>images/img1.png'" alt="<?=$v['alt']?>"/></a></span>
+                        <div class="ms-filtersListTxt">
+                            <h6 title="<?=$v['name']?>"><?=$v['name']?mb_substr($v['name'], 0, 10, 'UTF-8'):'-'?></h6>
+                            <p><span><?=$v['class']?>类</span>-<?=$_CLASS[$v['class']]?></p>
+                            <p title="<?=$v['goods']?>"><?=$v['goods']?mb_substr($v['goods'], 0, 14, 'UTF-8'):'-'?></p>
+                        </div>
+                        <div class="ms-filterBtn">
+                            <a href="javascript:void(0);" onclick="xunjia(this);" class="ms-inquiry" webid="30">&yen;&nbsp;询&nbsp;价</a>
+                            <a href="javascript:void(0);" onclick="goChat()" class="ms-seller" webid="31"><i class="us-icon us-icon22"></i>联系卖家</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?}else{?>
+            <li>
+                <input class="xunjia_data" type="hidden" tid="<?=$v['tid']?>" data_class="<?=$v['class']?>" number="<?=$v['number']?>" remarks="<?echo '商标号：'.$v['number'].';商标名称：'.$v['name']?>">
+                <div class="ms-filterMany">
+                    <div class="ms-filterCenter">
+                        <a href="javascript:void(0);" tnumber="<?=$v['number']?>" class="ms-collect <?if($v['isLook']=='1'){echo 'cur';}?>" addmsg="<?=$v['name']?>" webid="12"><i class="us-icon us-icon20"></i></a>
+                        <span class="ms-filtersImg"><a href="<?=$v['viewUrl']?>" target="_blank" webid="10"><img src="<?=$v['imgUrl']?>" onerror="this.src='<?=StaticDir?>images/img1.png'" alt="<?=$v['alt']?>"/></a></span>
+                        <div class="ms-filtersListTxt">
+                            <h6 title="<?=$v['name']?>"><?=$v['name']?mb_substr($v['name'], 0, 10, 'UTF-8'):'-'?></h6>
+                            <p>共<em><?=count($_c_)?></em>个分类</p>
+                            <p title="<?=$v['goods']?>"><?=$v['goods']?mb_substr($v['goods'], 0, 14, 'UTF-8'):'-'?></p>
+                        </div>
+                        <div class="ms-filterBtn">
+                            <a href="javascript:void(0);" onclick="xunjia(this);" class="ms-inquiry" webid="30">&yen;&nbsp;询&nbsp;价</a>
+                            <a href="javascript:void(0);" onclick="goChat()" class="ms-seller" webid="31"><i class="us-icon us-icon22"></i>联系卖家</a>
+                        </div>
+                    </div>
+                    <div class="ms-sortMain">
+                        <ul class="ms-sortList">
+                        <?foreach ($_c_ as $_k => $_v) {
+                            if ( $_k > 10 ) break;
+                        ?>
+                            <li><span><?=$_v?>类</span>-<?=$_CLASS[$_v]?></li>
+                        <?}?>
+                        </ul>
+                        <div class="ms-sortMore">
+                            <a href="<?=$v['viewUrl']?>">查看更多&nbsp;&gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?}?>
+        <?}?>
+
+        </ul>
+    </div>
+    <!-- ms-filtersList end -->
+</div>
+<? require(ViewDir.'/sidebar.html'); ?>
+<script type="text/javascript">
+
+	$("div.ms-filtersList > ul > li").each(function(i) {
+        $(this).css({ "margin": "0 17px 10px 0"});
+			if(i%6==5){
+			  $(this).css({ "margin-right": "0px"});
+			}
+    });
+    $(".ms-collect").click(function(){
+        var _this   = $(this);
+        var _number = _this.attr('tnumber');
+        if ( _this.hasClass('cur') ){
+            deleteCollectTrademark(_number, 1,function(data){
+                if (data.type != 0){
+                    _this.removeClass('cur');
+                    layer.msg('取消成功');
+                }else{
+                    layer.msg('取消失败');
+                }
+            });
+        }else{
+            collectTrademark(_number, 1, function(data){
+                if (data.type == 1){
+                    _this.addClass('cur');
+                    layer.msg('收藏成功');
+                }else{
+                    layer.msg('收藏失败');
+                }
+                
+            });
+        }
+    });
+	 $(document).ready(function(){     
+        $('.ms-filtersList').on('mouseover','li span',       
+                function(){
+                   
+                    $('#tip').show();
+                }
+        );
+        $('.ms-filtersList').on('mouseleave','li span',
+             
+            function(){
+                    $('#tip').hide();
+                }
+        );
+        $('.ms-filtersList').on('mousemove','li span',function(e){
+
+            var top = e.pageY+5;
+            var left = e.pageX+5;
+            $('#tip').css({
+                'top' : top + 'px',
+                'left': left+ 'px'
+            });
+        });
+    
+    
+    });
+    
+</script>
+
+<? require(ViewDir.'/footer.html'); ?>

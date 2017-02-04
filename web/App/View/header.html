@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="<?=StaticDir?>1.0/css/common.css?v=<?=$static_version?>"/>
+    <link rel="stylesheet" href="<?=StaticDir?>1.0/css/us-icon.css?v=<?=$static_version?>"/>
+    <link rel="stylesheet" href="<?=StaticDir?>1.0/css/font-awesome.min.css?v=<?=$static_version?>"/>
+    <link rel="stylesheet" href="<?=StaticDir?>1.0/css/plat.css?v=<?=$static_version?>"/>
+    <link rel="stylesheet" href="<?=StaticDir?>1.0/css/header.css?v=<?=$static_version?>"/>
+
+    <script type="text/javascript" src="<?=StaticDir?>1.0/js/jquery-1.8.3.min.js?v=<?=$static_version?>"></script>
+    <script type="text/javascript" src="<?=StaticDir?>1.0/js/jquery.SuperSlide.2.1.js?v=<?=$static_version?>"></script>
+    <script type="text/javascript" src="<?=StaticDir?>1.0/js/wap.js?v=<?=$static_version?>"></script>
+    <script type="text/javascript" src="<?=StaticDir?>1.0/js/header.js?v=<?=$static_version?>"></script>
+    <script type="text/javascript" src="<?=StaticDir?>1.0/js/yzc.js?v=<?=$static_version?>"></script>
+    <script src="<?=StaticDir?>script/layer/layer.js?v=<?=$static_version?>"></script>
+
+    <script src="<?=UC_URL?>Static/script/user/script/user.js?v=<?=$static_version?>"></script>
+    <script type="text/javascript" src="http://nigeda.com/data.js?v=<?=$static_version?>"> </script>
+
+    <script type="text/javascript">
+        var ptype = '<?=$ptype?>';//页面标识
+        var _YZC_ONLINE_    = '';
+        $(document).ready(function(e) {
+            //获取客服在线
+            $.ajax({
+                async: false,
+                type : 'post',
+                url  : '/index/getOnlineStatus/',
+                dataType : 'json',
+                success : function (data){
+                    if (data.code){
+                        _YZC_ONLINE_ = data.msg;
+                    }
+                }
+            });
+            //获得登录相关的参数
+            $.ajax({
+                async: false,
+                type : 'post',
+                url  : '/login/getLogin',
+                data : '',
+                dataType : 'json',
+                success : function (data){
+                    timestamp = data.timestamp;
+                    nonceStr = data.nonceStr;
+                    signature = data.signature;
+                },
+                error : function (data){
+                    layer.msg('初始化登录失败', {
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                    });
+                }
+            });
+            ucConfig.setConfig(timestamp,nonceStr,signature);
+            var copyArr = new Array();
+            var isLoghtml = '';
+            ucLoginTemp.setLoginTemp();
+
+            //用户是否登录
+            nick_name = getCookie('uc_nickname');
+            login_mobile = getCookie('uc_mobile');
+            crm_name = getCookie('crm_name');
+            login_id = getCookie('uc_identify');
+            isIndex  	= '<?=$is_index?>';
+            //登录情况下无手机号码, 弹窗提醒,跳转到用户中心绑定
+            if(nick_name && !login_mobile){
+                getLayer($('#goCenter'));
+            }
+
+            //执行任务
+            var task_aim = getCookie('task_aim');
+            delCookie('task_aim');
+            if(task_aim && login_mobile){
+                //执行任务
+                layer.load(1, {
+                    shade: [0.1,'#fff'] //0.1透明度的白色背景
+                });
+                task_aim = JSON.parse(task_aim);
+                task_aim['remarks'] += ';电话号码：' + login_mobile;
+                task_aim['tel'] 			= login_mobile;
+                //提交数据
+                setEvent('需求登记','表单-'+login_mobile);
+                ucBuy.buyAdd(task_aim);
+            }
+        });
+        //提交数据
+        function sendCount(args,async,callback){
+            $.ajax(
+                    {
+                        type:'get',
+                        url : '<?=TRADE_STATIC?>/Count/index?'+args,
+                        async: async,
+                        crossDomain:true,
+                        dataType : 'jsonp',
+                        jsonp:"yzctj",
+                        complete	: function(xhr,status){
+                            if(typeof callback =='function'){
+                                callback();
+                            }
+                        },
+                        success  : function(data) {
+                            if(data.code==1){
+                                aCookie('yzcdata',data.msg,315360000000);//更新cookie信息
+                                window.visitid = data.id;//保存此次浏览记录的id
+                            }
+                        }
+                    }
+            );
+        }
+    </script>
+
+</head>
+<body>
+
+<div class="mj-header f-clearfix">
+    <div class="w1180 mj-nav f-clearfix">
+        <ul class="mj-header_left fl">
+            <li><span class="security"><i class="uj_icon1"></i>安全保障</span></li>
+            <li>交易损失，全额100%赔付</li>
+        </ul>
+        <ul class="mj-header_right fr">
+            <li id="_login_no">
+                <div class="p-lg">
+                    <a class="chaofan-login"  onclick="$('#chaofn_dl_account').trigger('click');setEvent('登录')"></a>
+                </div>
+                <div class="reg">
+                    <a href="javascript:;" onclick="$('#chaofan-mj-login').trigger('click');$('#chaofn_dl_kaccount').trigger('click');setEvent('登录')">免费注册</a>
+                </div>
+            </li>
+            <!-- 登录以后 -->
+            <li id="login_after">
+            </li>
+            <li class="spacer xs_login_"></li>
+            <li>
+                <a target="_blank" href="">我的订单 </a>
+            </li>
+            <li class="spacer xs_login_"></li>
+            <li>
+                <a href="">商标45类注释 </a>
+            </li>
+            <li class="spacer xs_login_"></li>
+            <li class="mj-web-nav">
+                <div class="yzc-account">
+                    <a href="javascript:;" id="web-nav">网站导航<i class="us-icon us-icon24"></i> </a>
+                    <div class="account-list" id="acc-list" style="left: -5px;">
+                        <p><a href="">关于一只蝉</a></p>
+                        <p><a target="_blank" href="">新闻资讯</a></p>
+                        <p><a href="" target="_blank">帮助中心</a></p>
+                    </div>
+                </div>
+            </li><li>
+        </li></ul>
+    </div>
+</div>
+
+<script type="text/javascript" >
+
+    //延时加载图片
+    function _lazyImg(obj){
+        obj.find('.headerlazy').each(function(e){
+            var _this = $(this);
+            var _orig = _this.attr('_original');
+            if (_orig == '' || _orig == undefined ) return true;
+            //暂时不做效果
+            _this.attr('src', _orig);
+            _this.attr('_original', '');
+        });
+    }
+    $(".mj-search-nav").toggle(function(){
+        $(".mj-search-nav p").slideDown();
+    },function(){
+        $(".mj-search-nav p").slideUp();
+    });
+    $(".mj-search-nav p").click(function(){
+        if( $.trim($(".mj-search-nav p").html())=="搜专利"){
+            $(".mj-search-nav p").html('搜商标');
+            $(".mj-search-nav a").find("font").html("搜专利");
+            $("#con_sear_1, #con_sear_2").css({"display":"none"});
+            $(" #con_sear_2").css({"display":"block"});
+        }else{
+            $(".mj-search-nav p").html('搜专利');
+            $(".mj-search-nav a").find("font").html("搜商标");
+            $("#con_sear_1, #con_sear_2").css({"display":"none"});
+            $(" #con_sear_1").css({"display":"block"});
+        }
+    })
+    $('.tm_kw').focus(function (){
+        var _this   = $(this);
+        var _value  = $.trim( _this.val() );
+        if ( _value == '' ){
+            var _url = '/index/searchLog/';
+            $(".mj-pull-down").load(_url, function(data,status,xml){
+                if (data){
+                    $(".mj-pull-down").show();
+                }else{
+                    $(".mj-pull-down").hide();
+                    $(".mj-pull-down").html('');
+                }
+            });
+        }else{
+            _this.keyup();
+        }
+    });
+    $('input[name="kw"]').blur(function (){
+        var _this   = $(this);
+        setTimeout(function(){
+            $(".mj-pull-down").hide();
+            $(".mj-pull-down").html('');
+        },200);
+    });
+    $('.tm_kw').keyup(function(){
+        var _this   = $(this);
+        var _value  = $.trim( _this.val() );
+        if ( _value != '' ){
+            html = '<li><a href="/search/?kw='+_value+'&kt=1" onclick="setSearch('+_value+',\'商标名称\');layer.load(1,{shade: [0.2,\'#000\']});" addmsg="'+_value+'" webid="100" module="搜索-商标名称"><span class="fl" style="width:100%">按 <font style="font-weight: bold;color:#ff6666">商标名称</font>“ '+_value+'”搜索结果</span></a></li><li><a href="/search/?kw='+_value+'&kt=2" onclick="setSearch('+_value+',\'商标号\');layer.load(1,{shade: [0.2,\'#000\']});" addmsg="'+_value+'" webid="100" module="搜索-商标号"><span class="fl" style="width:100%">按 <font style="font-weight: bold;color:#ff6666">商标号</font>“ '+_value+'”搜索结果</span></a></li><li><a href="/search/?kw='+_value+'&kt=3" onclick="setSearch('+_value+',\'适用服务\');layer.load(1,{shade: [0.2,\'#000\']});" addmsg="'+_value+'" webid="100" module="搜索-适用服务"><span class="fl" style="width:100%">按 <font style="font-weight: bold;color:#ff6666">适用服务</font>“'+_value+' ”搜索结果</span></a></li>';
+            $(".tm-pull-down").html(html);
+            $(".tm-pull-down").show();
+        }else{
+            _this.focus();
+        }
+    });
+    $('.pt_kw').keyup(function(){
+        var _this   = $(this);
+        var _value  = $.trim( _this.val() );
+        if ( _value != '' ){
+            html = '<li><a href="/pt/?kw='+_value+'&kt=1" onclick="setSearch('+_value+',\'专利名称\');layer.load(1,{shade: [0.2,\'#000\']});" addmsg="'+_value+'" webid="100" module="搜索-专利名称"><span class="fl" style="width:100%">按 <font style="font-weight: bold;color:#ff6666">专利名称</font>“ '+_value+'”搜索结果</span></a></li><li><a href="/pt/?kw='+_value+'&kt=2" onclick="setSearch('+_value+',\'专利号\');layer.load(1,{shade: [0.2,\'#000\']});" addmsg="'+_value+'" webid="100" module="搜索-专利号"><span class="fl" style="width:100%">按 <font style="font-weight: bold;color:#ff6666">专利号</font>“ '+_value+'”搜索结果</span></a></li>';
+            $(".pt-pull-down").html(html);
+            $(".pt-pull-down").show();
+        }else{
+            _this.focus();
+        }
+    });
+
+</script>

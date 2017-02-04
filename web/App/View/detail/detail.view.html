@@ -1,0 +1,721 @@
+﻿<? require(ViewDir.'/header.html'); ?>
+
+<link rel="stylesheet" href="<?=StaticDir?>1.0/css/list.css?v=<?=$static_version?>"/>
+
+<!--移动端的头部-->
+<div class="details-header">
+    <span class="fl">
+        <a>
+            <img src="<?=StaticDir?>1.0/images/wap-jt.png">
+        </a>
+    </span>
+
+    <div class="details-header-lg">
+        <label>商标详情</label>
+        <i><img src="<?=StaticDir?>1.0/images/wap-lg.png"></i>
+        <p>
+            <a class="hot-xin">
+
+            </a>
+            <a>
+                <img src="<?=StaticDir?>1.0/images/wap-head2.png">
+            </a>
+            <a>
+                <img src="<?=StaticDir?>1.0/images/wap-head3.png">
+            </a>
+        </p>
+    </div>
+</div>
+<!--移动端的头部 end-->
+
+
+<div class="mj-header-nav f-clearfix">
+    <div class="w1180 f-clearfix">
+        <div class="search-box">
+            <div class="f-clearfix">
+                <input type="text" placeholder="输入你想买的商标名称/商标号/适用服务"/>
+                <i></i>
+            </div>
+            <ul class="pull-down-box">
+                <li>
+                    按<label>商标名称</label> 搜索“彩虹”的结果
+                </li>
+                <li>
+                    按<label>商标号</label> 搜索“彩虹”的结果
+                </li>
+                <li>
+                    按<label>适用服务</label> 搜索“彩虹”的结果
+                </li>
+            </ul>
+        </div>
+        <p class="head-nav">
+            <a href=""><i class="head-ico1"></i>商标购买</a>
+            <a href=""><i class="head-ico2"></i>商标注册</a>
+            <a href=""><i class="head-ico3"></i>我要买商标</a>
+            <a href=""><i class="head-ico4"></i>我要卖商标</a>
+        </p>
+    </div>
+</div>
+
+<div class="brand-details f-clearfix">
+    <div class="w1180">
+        <div class="fl fl-details">
+            <? if($pack): ?>
+            <p class="fl-details-tit"><a href="/offprice" target="_blank">特价商标</a> >打包出售</p>
+            <? else: ?>
+            <p class="fl-details-tit"><a href="/s-c-<?=$info['class'][0]?>/" target="_blank"><?=$info['className']?></a> >商标详情</p>
+            <? endif; ?>
+            <div class="brde-pic">
+                <div class="brde-pic-box">
+                    <? if($pack): ?>
+                    <em>打包出售<i></i></em>
+                    <? endif; ?>
+                    <span>
+                            <img src="<?=$sale['imgUrl']?>" onerror="this.src='/Static/images/img1.png'" alt="<?=$sale['alt1']?>">
+                    </span>
+
+                    <a>商品ID：<?=$info['tid']?></a>
+                </div>
+                <p>
+                    <span >独家商标风险检测工具<label>蝉精灵</label>准确率<label>95.93%</label></span>
+                    <a href="<?=$tips['safeUrl']?>" target="_blank" webid="3" addmsg="<?=empty($info['thum_name'])?'【暂无商标名称】':$info['thum_name']?>" module='检测工具'>检测此商标</a>
+                </p>
+            </div>
+            <div class="brde-scfx">
+                <p class="fl">
+                    <?if($sale['isLook']):?>
+                    <a class="collect" webid="4" addmsg="取消收藏-<?=empty($info['thum_name'])?'【暂无商标名称】':$info['thum_name']?>" module='取消收藏'> <img src="<?=StaticDir?>1.0/images/xin_cur.png"><span>取消收藏</span></a>
+                    <?else:?>
+                    <a class="collect in_collect" webid="4" addmsg="<?=empty($info['thum_name'])?'【暂无商标名称】':$info['thum_name']?>" module='收藏商标'> <img src="<?=StaticDir?>1.0/images/sbxq-ico1.png"><span>收藏商标</span></a>
+                    <?endif;?>
+                </p>
+                <p class="fr">
+                    <a href="javascript:;" class="jiathis jiathis_txt" addmsg="<?=empty($info['thum_name'])?'【暂无商标名称】':$info['thum_name']?>" module='分享'> <img src="<?=StaticDir?>1.0/images/sbxq-ico2.png">分享</a>
+                </p>
+            </div>
+        </div>
+        <div class="fr fr-details">
+            <?php
+                $str = "申请中";
+                $tm_status = 0;
+                if($info['status'] == '已注册'){
+                    $tm_status = 1;
+                    $str = "已注册";
+                }
+            ?>
+            <h3>
+                <span title="<?=$info['name']?>"><?=empty($info['thum_name'])?'【暂无商标名称】':$info['thum_name']?></span>
+                <?if(count($info['class'])==1):?><span title="<?=$info['label']?>" class="light_title">(<?=$info['class'][0]?>类 <?=$info['thum_label']?>)</span><?endif;?>
+            </h3>
+            <label class="bm"><?=$sale['value']?></label>
+            <?if($tm_status):?>
+            <span class="o-reg-lg">
+                 <a>已注册</a>
+            </span>
+            <?endif;?>
+            <div class="classify">
+                <ul class="mj-cTr_center">
+                    <li>
+                        <label>经营范围：</label><font><?=$info['goods']?></font>
+                    </li>
+                    <li>
+                        <label>此商标可入驻：</label>
+                        <p class="may">
+                            <?php
+                    //定义一个函数
+                    function checkIn($arr1,$arr2){
+                        foreach($arr1 as $item){
+                            if(in_array($item,$arr2)){
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                    if(empty($sale['platform'])){//根据类别规则显示
+                        foreach($platformIn as $k=>$v){
+                            if(checkIn($info['class'],$platformItems[$k])){
+                            echo "<a href='".$platformUrl[$k]."' webid='2' addmsg='".$v."' module='入驻平台' target='_blank' class='cur' >".$v."</a>";
+                            }
+                            }
+                            }else{//根据包装信息显示
+                            foreach($platformIn as $k=>$v){
+                            if(in_array($k, array_filter(explode(',',$sale['platform'])))){
+                            echo "<a href='".$platformUrl[$k]."' webid='2' addmsg='".$v."' module='入驻平台' target='_blank' class='cur' >".$v."</a>";
+                            }
+                            }
+                            }
+
+                            ?>
+
+                        </p>
+                    </li>
+                </ul>
+                <p class="mj-cTr-tp f-clearfix f-hidden">
+                    价格<label>￥<b><?=$price_module['price']?></b></label>元
+                    <? if($price_module['key']==1): ?>
+                    <em>原价：￥<?=$sale['price']?></em>
+                    <? endif; ?>
+
+                </p>
+                <p class="mj-cTr-ts f-clearfix f-hidden">
+                    温馨提示：80%卖家标注都是弹性出售价格-有较大的商谈空间
+                </p>
+
+            </div>
+            <div class="zx-sqr">
+                <p class="pro fl" title="<?=$info['proName']?>"><img src="<?=StaticDir?>1.0/images/pel-ico.png">
+                    <label><?=$info['proName']?></label>
+                    <a href="javascript:;" webid="31" onclick="goChat()" addmsg="咨询-咨询ta" module="咨询ta">咨询TA</a></p>
+                <div class="pel fl">
+                    <p class="tel">
+                        <img src="<?=StaticDir?>1.0/images/tel.png"><b><?=$contact['phone']?></b>
+                    </p>
+                    <a href="javascript:;" class="mj-cTr-tpBtn" webid="30" onclick="createOrder();" class="opt_btn"><img src="<?=StaticDir?>1.0/images/shop-ico.png">我有兴趣</a>
+                </div>
+            </div>
+
+            <div style="padding-top:50px;display: none;">
+                <img src="images/nogoods.png">
+            </div>
+        </div>
+    </div>
+</div>
+<!--数据提交的隐藏域-->
+<div style="display: none">
+    <input type="hidden" id="tels">
+    <input type="hidden" id="tid">
+    <input type="hidden" id="trademark">
+    <input type="hidden" id="class">
+    <input type="hidden" id="remarks">
+</div>
+<div class="w1180 details-main" style="padding-top: 25px;">
+    <div class="intr-flow fr">
+        <div class="intr-flow-tit">
+            <ul>
+                <li>
+                    <a href="#sbjj" class="on">商标介绍</a>
+                </li>
+                <li>
+                    <a href="#jylc" class="">交易流程</a>
+                </li>
+                <li style="border-right:none; ">
+                    <a href="#jcwt" class="">常见问题</a>
+                </li>
+            </ul>
+        </div>
+        <div class="detail-recom-main f-clearfix">
+            <div class="detail-recom-trademark">
+                <div style="text-align:center;">
+                    <img src="<?=StaticDir?>1.0/images/pic2.jpg" alt=""><br>
+                </div>            </div>
+            <div class="transaction f-clearfix">
+                <h4 class="trans-tit"><b>一只蝉</b>独家交易体系  <span>七道工序，只为交易更安全 </span></h4>
+                <!--pc版本-->
+                <ul class="trans-jytx pc-trans-jytx">
+                    <li>
+                        <div class="trans-pic">
+                         <span>
+                              <img src="<?=StaticDir?>1.0/images/jytx-ico1.png">
+
+                         </span>
+                            1 风险检测
+                        </div>
+                        <div class="cover">
+                            <i class="arrow-up"></i>
+                            <p>
+                                独家商标风险检测报告，<br>保障商标状态安全
+                            </p>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li>
+                        <div class="trans-pic">
+                         <span>
+                               <img src="<?=StaticDir?>1.0/images/jytx-ico2.png">
+                         </span>
+                            2 价格评估
+                        </div>
+                        <div class="cover">
+                            <i class="arrow-up"></i>
+                            <p>
+                                19项价格评估体系，<br>杜绝漫天要价！
+                            </p>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li class="lht">
+                        <div class="trans-pic">
+                         <span>
+                               <img src="<?=StaticDir?>1.0/images/jytx-ico3.png">
+                         </span>
+                            3 匹配商标
+                        </div>
+                        <div class="cover">
+                            <i class="arrow-up"></i>
+                            <p>
+                                根据要求帮您匹配合适的商标。
+                            </p>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li>
+                        <div class="trans-pic">
+                         <span>
+                               <img src="<?=StaticDir?>1.0/images/jytx-ico4.png">
+                         </span>
+                            4 签订协议
+                        </div>
+                        <div class="cover">
+                            <i class="arrow-up"></i>
+                            <p>
+                                签《100%赔付协议》获“独占使用许可”
+                            </p>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li>
+                        <div class="trans-pic">
+                         <span>
+                               <img src="<?=StaticDir?>1.0/images/jytx-ico5.png">
+                         </span>
+                            5 转让公证
+                        </div>
+                        <div class="cover">
+                            <i class="arrow-up"></i>
+                            <p>
+                                一只蝉与政府双线双审核
+                            </p>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li class="lht">
+                        <div class="trans-pic">
+                         <span>
+                               <img src="<?=StaticDir?>1.0/images/jytx-ico6.png">
+                         </span>
+                            6 上报商标局
+                        </div>
+                        <div class="cover">
+                            <i class="arrow-up"></i>
+                            <p>
+                                集团制度保障，<br>
+                                所有业务当天上报！
+                            </p>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li>
+                        <div class="trans-pic">
+                         <span>
+                               <img src="<?=StaticDir?>1.0/images/jytx-ico7.png">
+                         </span>
+                            7 转让完成
+                        </div>
+                        <div class="cover">
+                            <i class="arrow-up"></i>
+                            <p>
+                                商标局核准，<br>
+                                获得《商标转让核准证明》
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <!--wap版本-->
+                <ul class="trans-jytx wap-trans-jytx">
+                    <li>
+                        <div class="trans-pic">
+                         <span>
+                               检测
+                         </span>
+
+                        </div>
+
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li>
+                        <div class="trans-pic">
+                            <span>评估</span>
+                        </div>
+
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li class="lht">
+                        <div class="trans-pic">
+                            <span>匹配</span>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li>
+                        <div class="trans-pic">
+                            <span>签订</span>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li>
+                        <div class="trans-pic">
+                            <span>转让</span>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li class="lht">
+                        <div class="trans-pic">
+                            <span>上报</span>
+                        </div>
+                    </li>
+                    <li class="trans-jytx-jt">
+
+                    </li>
+                    <li>
+                        <div class="trans-pic">
+                            <span>转让</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="tran-FAQ f-clearfix">
+                <h4>常见问题解疑</h4>
+                <ul>
+                    <li>
+                        <b>如何尽快找到想要的标？</b>
+                        <p>
+                            14年代理资源 30家合作机构<br>
+                            30万闲置在售 21种筛选方法<br>
+                        </p>
+                    </li>
+                    <li>
+                        <b>付款后，卖家跑了/不卖了咋办？</b>
+                        <p>
+                            全国独家签订《损失100%赔付协议》
+                            交易损失，24小时全额赔付<br>
+                        </p>
+                    </li>
+                    <li>
+                        <b>买的商标什么时候可以用？</b>
+                        <p>
+                            签订《独占许可协议》<br>
+                            今天选中，明天就用
+                            <a>
+                                如何做到？
+
+                            </a><br>
+
+                        </p>
+                        <div class="cover">
+                            <i class="arrow-up"></i>
+                            <label>
+                                一只蝉督促双方签订《独占许可协议》，签完立<br>
+                                即对外使用，无需等8-10个月转让流程。
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <b>需要准备哪些资料？</b>
+                        <p>
+                            只需提供身份证或营业执照<br>
+                            剩下的资料我们帮你准备<br>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="detail-recom fl">
+        <h2>猜你喜欢</h2>
+        <ul class="recompic">
+
+            <li>
+                <a href="" ><img src="<?=StaticDir?>1.0/images/pic1.jpg"></a>
+            </li>
+            <li>
+                <a href=""><img src="<?=StaticDir?>1.0/images/pic1.jpg"></a>
+            </li>
+            <li>
+                <a href=""><img src="<?=StaticDir?>1.0/images/pic1.jpg"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--移动版的底部-->
+<div class="wap-btm">
+    <div  class="wap-btm-main">
+        <div class="wap-btm-lf">
+            <p class="btm-lf-price">
+                <label><b>5000</b>元</label>原价：<s>￥38000</s>
+            </p>
+            <p class="btm-lf-intr">温馨提示：80%卖家标注都是弹性出售价格-有较大的商谈空间</p>
+        </div>
+        <div class="wap-btm-rg">
+            <p>
+                <a href="" class="btm-lf-tel">
+                    <span><img src="<?=StaticDir?>1.0/images/btm-tel1.png"></span>
+                    <label>咨询</label>
+                </a>
+                <a href="" class="btm-rg-zx">
+                    <span><img src="<?=StaticDir?>1.0/images/btm-tel2.png"></span>
+                    <label>兴趣</label>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //滚动事件
+    var qtp=$(".tran-FAQ").offset().top
+    $(window).scroll(function(){
+        if($('.tran-FAQ').offset().top-$(document).scrollTop()<=88){
+            $(".intr-flow-tit").addClass("f-tp");
+            $(".intr-flow-tit a").removeClass("on");
+            $(".intr-flow-tit a").eq(2).addClass("on");
+            $(".wap-btm").show();
+        }
+        else if($('.transaction').offset().top-$(document).scrollTop()<=78){
+            $(".intr-flow-tit").addClass("f-tp");
+            $(".intr-flow-tit a").removeClass("on");
+            $(".intr-flow-tit a").eq(1).addClass("on");
+            $(".wap-btm").show();
+        }else if($(".intr-flow").offset().top-$(document).scrollTop()<=0){
+            $(".intr-flow-tit").addClass("f-tp");
+            $(".intr-flow-tit a").removeClass("on");
+            $(".intr-flow-tit a").eq(0).addClass("on");
+            $(".wap-btm").show();
+        } else{
+            $(".intr-flow-tit").removeClass("f-tp");
+            $(".intr-flow-tit a").removeClass("on");
+            $(".intr-flow-tit a").eq(0).addClass("on");
+            $(".wap-btm").hide();
+        }
+    })
+    //点击选项卡事件
+    $(".intr-flow-tit a").eq(0).click(function(){
+        var t=$(".intr-flow").offset().top-48;
+        $("html, body").animate({"scrollTop":t});
+    })
+    $(".intr-flow-tit a").eq(1).click(function(){
+        var t=$(".transaction").offset().top-88;
+        $("html, body").animate({"scrollTop":t});
+    })
+    $(".intr-flow-tit a").eq(2).click(function(){
+        var t=$(".tran-FAQ").offset().top-68;
+        $("html, body").animate({"scrollTop":t});
+    })
+    //手机触屏变背景色
+    $(".trans-jytx li span").click(function(){
+        $(this).css({"backgroundImage":"url('images/jytx-bg2.png')"})
+    })
+    var clik=1;
+    $(".tran-FAQ ul li p a").click(function(){
+        clik++;
+        if(clik==2){
+            $(".tran-FAQ ul li .cover").css({"display":"inline-block"})
+        }
+        else{
+            $(".tran-FAQ ul li .cover").css({"display":"none"})
+            clik=1;
+        }
+    })
+
+    $(".hot-xin").click(function(){
+        clik++;
+        if(clik==2){
+            $(this).css({"backgroundImage":"url('images/xin_cur.png')"})
+        }
+        else{
+            $(this).css({"backgroundImage":"url('images/wap-head1.png')"})
+            clik=1;
+        }
+
+    })
+</script>
+
+<script type="text/javascript">
+    //收藏登录
+    $("#loginShow").click(function(){
+        $("#chaofan-mj-login").click();
+    })
+
+    var olis=$(".classify-main li");
+    for(var i=0;i<=olis.length;i++){
+        if(olis.length>10){
+            olis.slice(10,i).hide();
+        }
+        else{
+            olis.slice(0,9).show();
+        }
+    }
+    $(".all-class").each(function(){
+        $(this).click(function(){
+            var dataindex= $(this).attr("data-index");
+            if(olis.length<10){
+                $(this).attr("data-index","1");
+            }
+            else{
+                if(dataindex==1){
+                    $(this).css("color","#ff6666");
+                    $(this).find("i.fel-down").css("background-image"," url('<?=StaticDir?>1.0/images/xq-up.png')")
+                    for(var i=0;i<=olis.length;i++){
+                        if(olis.length>10){
+                            olis.slice(10,i).show();
+                        }
+                        else{
+                            olis.slice(10,i).hide();
+                        }
+                    }
+                    $(this).attr("data-index","0");
+                }
+                else{
+                    $(this).css("color","#666666");
+                    $(this).find("i.fel-down").css("background-image"," url('<?=StaticDir?>1.0/images/xq-down.png')")
+                    for(var i=0;i<=olis.length;i++){
+                        if(olis.length>10){
+                            olis.slice(10,i).hide();
+                        }
+                    }
+                    $(this).attr("data-index","1");
+                }
+            }
+
+
+        })
+    })
+</script>
+<!--购买相关js-->
+<script type="text/javascript">
+    $(function(){
+        //有手机登录情况下 检测该用户是否购买
+        var trademark = "<?=$info['number']?>";
+        var tm_class = "<?=implode(',',$info['class'])?>";
+        if(login_mobile){
+            ucBuy.isexist(trademark,tm_class);
+        }
+        //给隐藏域赋值
+        var user_tel = login_mobile;
+        $('#tels').val(user_tel);
+        $('#tid').val("<?=$info['tid']?>");
+        $('#trademark').val(trademark);
+        $('#class').val(tm_class);
+        $('#remarks').val("<?=$need?>");
+        if(user_tel){
+            $('#telInput2').val(user_tel);
+        }
+
+        //收藏功能
+        $('.collect').click(function(){
+            var nowObj = this;//保存当前this
+            if($(this).hasClass('in_collect')){
+                //收藏
+                collectTrademark(trademark, 1, function(data){
+                    if (data.type == 1){
+                        $(nowObj).removeClass('in_collect');
+                        $(nowObj).find('span').html('取消收藏');
+                        $(nowObj).find('img').attr("src","/Static/1.0/images/xin_cur.png");
+                        layer.msg('收藏成功',{time:1500});
+                    }else{
+                        layer.msg('收藏失败',{time:1500});
+                    }
+                });
+            }else{
+                //取消收藏
+                deleteCollectTrademark(trademark, 1,function(data){
+                    if (data.type != 0){
+                        $(nowObj).addClass('in_collect');
+                        $(nowObj).find('span').html('收藏商标');
+                        $(nowObj).find('img').attr("src","/Static/1.0/images/sbxq-ico1.png");
+                        layer.msg('取消成功',{time:1500});
+                    }else{
+                        layer.msg('取消失败',{time:1500});
+                    }
+                });
+            }
+        });
+    });
+    function createOrder(){
+        var tel= $('#tels').val();
+        //获得数据
+        var buyData 			= new Object();
+        buyData['tid'] 			= $('#tid').val();
+        buyData['trademark'] 	= $('#trademark').val();
+        buyData['class'] 		= $('#class').val();
+        buyData['subject'] 		= '求购信息';
+        buyData['remarks'] 		= $('#remarks').val();
+        if(tel){
+            setEvent('立即购买','表单-提交了账号'+tel);
+        }
+        xunjia(buyData,2);//调用询价方法
+    }
+    //生成订单--2  (直接输入电话)
+    //失去焦点,检测用户输入的手机号
+    $('#telInput2').blur(function(){
+        var tel= $.trim($('#telInput2').val());
+        //验证手机号码
+        if(!tel || !mobilereg.test(tel) || tel.length!=11){
+            $('#telInput2').addClass('ddw_input');
+            $('#telInput2').val('请输入正确的手机号');
+            return false;
+        }
+    });
+    $('#telInput2').focus(function(){
+        $('#telInput2').removeClass('ddw_input');
+        $('#telInput2').val('');
+    })
+    //生成订单--2
+    function createOrderByPhone(){
+        layer.load(1,{shade: [0.2,'#000']});
+        //检测是否电话号码
+        var tel= $.trim($('#telInput2').val());
+        //验证手机号码
+        if(!tel || !mobilereg.test(tel) || tel.length!=11){
+            $('#telInput2').addClass('ddw_input');
+            $('#telInput2').val('请输入正确的手机号');
+            layer.closeAll();
+            return false;
+        }
+        //获得数据
+        var remarks 	= $('#remarks').val();
+        remarks = remarks + ';电话号码：' + tel;
+        var buyData 			= new Array();
+        buyData['tel'] 			= tel;
+        buyData['tid'] 			= $('#tid').val();
+        buyData['trademark'] 	= $('#trademark').val();
+        buyData['class'] 		= $('#class').val();
+        buyData['subject'] 		= '求购信息';
+        buyData['remarks'] 		= remarks;
+        //提交数据
+        sendBehavior(30,ptype, 0, 0,'tel:'+tel);//保存操作信息
+        setEvent('打给我','表单-提交了电话号'+tel);
+        ucBuy.buyAdd(buyData);
+    }
+    //检测用户是否购买回调
+    function isexistCallback(Obj){
+        $.each(Obj,function(i,n){
+            //弹窗提示
+            if(n.code==2){
+                $('.opt_btn').replaceWith("<a href='javascript:;' class='opt_btn'>求购信息已提交</a>");
+            }
+        });
+    }
+</script>
+<!--分享相关js-->
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+<? require(ViewDir.'/footer.html'); ?>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>无形资产交易平台</title>
+	<meta http-equiv="refresh" content="5; url=<? echo SITE_URL;?>">
+    <link rel="stylesheet" href="<?=StaticDir?>style/import-comm.css"/>
+    <link rel="stylesheet" href="<?=StaticDir?>style/mj-halt-header.css"/>
+    <link rel="stylesheet" href="<?=StaticDir?>style/mj-halt-footer.css"/>
+    <link rel="stylesheet" href="<?=StaticDir?>style/mj-login.css"/>
+    <script src="<?=StaticDir?>script/jquery-1.8.3.min.js"></script>
+    <script src="<?=StaticDir?>script/login.js"></script>
+</head>
+<body>
+
+<div class="mj-reHeader">
+    <div class="w1100 f-clearfix">
+        <span class="mj-Tnav_log"><img src="<?=StaticDir?>style/img/logo.png" alt=""></span>
+    </div>
+</div>
+
+<style>
+	.s-main{margin:8% 0 10% 0; text-align:center;}
+	.message{margin-top:20px;font-size:14px;color:#666666;}
+	.message b{color:#e86b1d ; font-size:16px;}
+	.message a{padding-right:20px; background:url(<?=StaticDir?>style/img/error-back.jpg) no-repeat right;font-weight:bold; color:#e86b1d ; text-decoration:none; }
+</style>
+<script>
+start = 5;
+window.setInterval("interval()",1000)
+function interval(){
+	start = start-1;
+	$("#time").html(start);
+
+}
+</script>
+
+<div class="s-main">
+	<div class="gs-404">
+		<img src="<?=StaticDir?>style/img/error.jpg" alt=""/>
+		
+		<div class="message">
+		<b id="time">5</b>&nbsp;秒后自动跳转到首页 &nbsp; &nbsp;
+		<a href="<?=$url?>">返回上一页</a>
+		<div style="color:#fff;"><?=$msg?></div>
+		</div>
+	</div>
+</div>
+
+
+<!--mj-footer start-->
+<div class="mj-footer">
+    <div class="w1100 mj-footer_con">
+        <ul class="f-clearfix">
+            <li><a href="">超凡网</a></li>
+            <li class="spacer"></li>
+            <li><a href="">知库</a></li>
+            <li class="spacer"></li>
+            <li><a href="">关注微博</a></li>
+            <li class="spacer"></li>
+            <li><a href="">意见反馈</a></li>
+        </ul>
+        <p>Copyright © 2002 - 2015 北京超凡知识产权代理有限公司 京ICP备13010625号   联系我们：400-676-1007</p>
+    </div>
+</div>
+<!--mj-footer end-->
+
+<script type="text/javascript">
+    $(function(){
+        //登录方式切换
+        $(".mj-logR_top span").click(function(){
+            $(this).addClass("cur").siblings().removeClass("cur");
+            $('.mj-logWay>ul:eq('+$(this).index()+')').show().siblings().hide();
+        });
+    });
+</script>
+</body>
+</html>

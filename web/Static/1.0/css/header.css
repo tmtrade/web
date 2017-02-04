@@ -1,0 +1,359 @@
+﻿#login_after:hover .account-list {
+    display: block;
+}
+#_login_no .reg{
+    margin-left: 16px;
+}
+.mj-boughtM {
+    display: none;
+    position: relative;
+    width: 483px;
+    height: 235px;
+    background: #fff;
+    border: solid 1px #cfcfcf;
+}
+.mj-bconLefts {
+    display: inline-block;
+    margin-right: 15px;
+    float: left;
+    height: 160px;
+}
+.mj-bconRight h6 {
+    font-size: 22px;
+    color: #444;
+    font-weight: normal;
+    padding-bottom: 10px\9;
+}
+.mj-bconRight p{
+    color:#888;
+}
+.mj-bconRight a {
+    display: inline-block;
+    margin-top: 15px;
+    width: 118px;
+    height: 33px;
+    text-align: center;
+    line-height: 33px;
+    font-size: 12px;
+    border-radius: 1px;
+}
+.mj-boBtn1 {
+    background: #fff;
+    border: solid 1px #c3e1f9;
+    color: #48aff1;
+}
+.mj-close{
+
+    display: block;
+
+    position: absolute;
+
+    right: 10px;
+
+    top: 10px;
+
+    width: 16px;
+
+    height: 16px;
+
+    background: url(../images/mj-icon23.png) no-repeat;
+
+}
+
+.mj-close:hover{
+
+    background: url(../images/mj-icon24.png) no-repeat;
+
+}
+.mj-bcon {
+    padding: 65px 0 0 60px;
+}
+
+.mj-loginModel{
+
+    position: relative;
+
+    padding: 30px 25px 15px;
+
+    width: 294px;
+    background: #fff;
+
+    border: solid 1px #cfcfcf;
+
+    z-index:999999999999999999999999999999999;
+
+    position:fixed;
+
+}
+.mj-lmTop{
+
+    padding: 0 0 15px 15px;
+
+    border-bottom: dashed 1px #dcdcdc;
+
+}
+
+.mj-lmTop h6{
+
+    font-size: 20px;
+
+    color: #383838;
+
+    text-align:center;
+
+}
+
+.mj-lmTop h6 em{
+
+    font-style: normal;
+
+    font-size: 14px;
+
+    color: #fc7d28;
+
+}
+
+.mj-lmTop h6 span{
+
+    font-size: 14px;
+
+    color: #383838;
+
+}
+
+.mj-lmTop p{
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #666;
+
+}
+
+.mj-form-wrappers {
+
+    position: relative;
+
+    height: 38px;
+
+    background: #fff;
+
+    border-radius: 2px;
+
+    padding: 0 10px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid #ccc;
+
+}
+
+.mj-inpuVs {
+
+    line-height: 38px;
+
+    color: #999;
+
+    padding-left: 5px;
+
+    font-size: 12px;
+
+}
+.mj-form-wrappers .ms-input{
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 55;
+
+}
+.ms-input input{
+
+    width: 260px;
+
+    margin: 0 0 0 10px;
+
+    padding: 0;
+
+    font-size: 14px;
+
+    height: 38px;
+
+    line-height: 38px\9;
+
+    background: url('../other/8DAG4xA3+Ev9g4AAAAAElFTkSuQmCC');
+
+    border: 0 none;
+
+    outline: none;
+
+    vertical-align: middle;
+
+}
+
+.ms-loginBtn{
+
+    display: block;
+
+    margin-top: 15px;
+
+    height: 38px;
+
+    line-height: 38px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    background: #fc7d28;
+
+    border-radius: 2px;
+
+}
+
+.ms-phoneInput{
+
+    margin-top: 10px;
+
+}
+
+.ms-phoneInput .ms-input{
+
+    float: left;
+
+    width: 178px;
+
+    margin: 0;
+
+}
+
+.ms-phoneInput .ms-input input{
+
+    width: 90%;
+
+}
+
+.ms-phoneInput .ms-sent{
+
+    float: right;
+
+    width: 35%;
+
+    height: 40px;
+
+    line-height: 40px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    background: #6FA3FF;
+
+    border-radius: 2px;
+
+}
+
+.ms-loginMain.cur .ms-username{
+
+    display: none;
+
+}
+
+.ms-loginMain.cur .ms-phone{
+
+    display: block;
+
+}
+
+.mj-selection-list .current, .mj-selection-list a:hover{
+
+    color: #fff!important;
+
+}
+.mj-mlspan{
+
+    margin-left: 15px;
+
+}
+
+.ms-errorTips p{
+
+    margin: 5px 0 0 0;
+
+    padding: 0 30px;
+
+    line-height: 28px;
+
+    border: 1px solid #ffddb2;
+
+    background: #fff7e1;
+
+    color: #e80b05;
+
+}
+
+.ms-errorTips em{
+
+    font-style: normal;
+
+}
+.ms-input{
+
+    height: 38px;
+
+}
+.mj-form-wrappers div.mj-input{
+
+    padding-left: 20px;
+
+    width: 158px;
+
+}
+
+.ms-boxBg{
+
+    position: fixed;
+
+    background: #000000;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    z-index:9999999;
+
+}
+
+.ms-loginBox{
+
+    background: #ffffff;
+
+    position: fixed;
+
+    z-index: 6666;
+
+    padding: 30px;
+
+    top: 0;
+
+    left: 0;
+
+    width: 290px;
+
+    display: none;
+
+}

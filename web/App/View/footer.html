@@ -1,0 +1,190 @@
+﻿
+<div class="mj-footer f-clearfix">
+    <div class="mj-footer_top">
+        <div class="w1180">
+            <ul class="f-clearfix">
+                <li>
+                    <img class="lazy" src="<?=StaticDir?>1.0/images/mj-icon18.png" data-original="<?=StaticDir?>1.0/images/mj-icon18.png" style="display: block;">
+                    <div class="mj-fLitext">
+                        <p>精准匹配</p>
+                        <span>强大筛选系统 - 3.5秒匹配</span>
+                    </div>
+                </li>
+                <li class="mj-fSwaper"></li>
+                <li>
+                    <img class="lazy" src="<?=StaticDir?>1.0/images/mj-icon19.png" data-original="<?=StaticDir?>1.0/images/mj-icon19.png" style="display: block;">
+                    <div class="mj-fLitext">
+                        <p>快速流程</p>
+                        <span>最快4小时 - 商标抱回家</span>
+                    </div>
+                </li>
+                <li class="mj-fSwaper"></li>
+                <li>
+                    <img class="lazy" src="<?=StaticDir?>1.0/images/mj-icon20.png" data-original="<?=StaticDir?>1.0/images/mj-icon20.png" style="display: block;">
+                    <div class="mj-fLitext">
+                        <p>拒绝损失</p>
+                        <span>担保交易 - 签订100%赔付协议</span>
+                    </div>
+                </li>
+                <li class="mj-fSwaper"></li>
+                <li>
+                    <img class="lazy" src="<?=StaticDir?>1.0/images/mj-icon21.png" data-original="<?=StaticDir?>1.0/images/mj-icon21.png" style="display: block;">
+                    <div class="mj-fLitext">
+                        <p>透明交易</p>
+                        <span>3方协议 - 全程公证 </span>
+                    </div>
+                </li>
+                <li class="mj-fSwaper"></li>
+                <li>
+                    <img class="lazy" src="<?=StaticDir?>1.0/images/mj-icontj.png" data-original="<?=StaticDir?>1.0/images/mj-icontj.png" style="display: block;">
+                    <div class="mj-fLitext">
+                        <p>终身免费售后</p>
+                        <span>转让后 -永久免费安全监测</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="w1180">
+        <div class="mj-footer_nav">
+            <p>
+                <span>友情链接：</span>
+                <a target="_blank" href="">成都法律咨询</a>
+                <a target="_blank" href="">商标转让</a>
+                <a target="_blank" href="">须知网</a>
+                <a target="_blank" href="">商标转让</a>
+                <a target="_blank" href="">南昌律师</a>
+                <a target="_blank" href="">上海房产律师</a>
+                <a target="_blank" href="">法律法规大全</a>
+                <a target="_blank" href="">武汉刑事律师</a>
+                <a target="_blank" href="">商标转让</a>
+                <a target="_blank" href="">虹在线</a>
+                <a target="_blank" href="">中国商标网</a>
+            </p>
+
+        </div>
+
+        <p class="mj-footerB_text"><a href="http://www.miibeian.gov.cn/"><img src="<?=StaticDir?>1.0/images/fit-pic6.png">ICP证：蜀ICP备15035613号-1</a> 违法和不良信息举报电话: 028-110     Copyright © 2002 - 2016 </p>
+    </div>
+</div>
+<!-- 新增登录框弹出框 -->
+<div class="mj-loginModel" id="loginFormDiv"  style="display: none;">
+    <span class="ms-close mj-close" onclick="boxHide('mj-loginModel')"></span>
+    <div class="mj-lmTop" id="dl_title">
+        <h6>登录</h6>
+        <p style="margin-left: 10px;"></p>
+    </div>
+    <div class="mj-lmBottom">
+        <div class="ms-errorTips ms-errorTips2">
+            <p class="reg-tip" id="loginTips"><i class="us-icon us-icon19"></i><em></em></p>
+        </div>
+        <div class="ms-phoneInput f-clearfix">
+            <div class="mj-form-wrappers fl" style="width: 158px;">
+                <span class="mj-inpuVs mj-mlspan">请输入手机号码</span>
+                <div class="ms-input mj-input">
+                    <!--<i class="us-icon uj-icon5"></i>-->
+                    <input type="text" id="loginUser" >
+                </div>
+            </div>
+            <a href="javascript:;" class="ms-sent" id="dl_wjmm">动态密码</a>
+            <a href="javascript:;" class="ms-sent" id="dl_fsmm" style="display:none">发送密码</a>
+        </div>
+        <div class="mj-form-wrappers">
+            <span class="mj-inpuVs mj-mlspan">请输入密码</span>
+            <div class="ms-input mj-input">
+                <!--<i class="us-icon us-iconmi"></i>-->
+                <input type="password" id="loginPass" onkeydown="if(event.keyCode==13) letLogin();" >
+            </div>
+        </div>
+        <div class="mj-lomTip" id="dl_ts" style="display:none">
+            <b>未收到密码: </b>
+            <p>1.手机号错误，请验证后重新输入</p>
+            <p>2.发送失败，人工将电话与您联系</p>
+        </div>
+        <a href="javascript:;" ctype="e" class="ms-loginBtn " id="dl_sub">立即登录</a>
+    </div>
+</div>
+<!-- 跳转到用户中心 -->
+<div class="mj-boughtM" id="goCenter">
+    <span class="ms-close mj-close"></span>
+    <div class="mj-bcon f-clearfix">
+        <span class="mj-bconLefts"><img src="<?=StaticDir?>style/img/mj-img6s.png" alt=""/></span>
+        <div class="mj-bconRight">
+            <h6>欢迎</h6>
+            <p>请到用户中心绑定手机号码, 修改成功请刷新本页面</p>
+            <a target="_blank" href="<?=UC_URL?>/user/main/"  class="mj-boBtn1">GO 用户中心！</a>
+        </div>
+    </div>
+</div>
+<!--求购已提交弹出层-->
+<div class="mj-boughtM" id="mj-submitteS">
+    <span class="ms-close mj-close"></span>
+    <div class="mj-bcon f-clearfix">
+        <span class="mj-bconLefts"><img src="<?=StaticDir?>style/img/mj-img6s.png" alt=""/></span>
+        <div class="mj-bconRight">
+            <h6 class="ddw_success1">恭喜，提交成功</h6>
+            <p class="ddw_success2">请保持电话畅通，10分钟内联系你。</p>
+            <a href="javascript:;" onclick="layer.closeAll();" class="mj-boBtn1">点击此处关闭！</a>
+        </div>
+    </div>
+</div>
+<!--求购已提交失败弹出层-->
+<div class="mj-boughtM" id="mj-submitteF">
+    <span class="ms-close mj-close"></span>
+    <div class="mj-bcon f-clearfix">
+        <span class="mj-bconLefts"><img src="<?=StaticDir?>style/img/mj-cimg.jpg" alt=""/></span>
+        <div class="mj-bconRight">
+            <h6 style="color:#ff6600" class="ddw_error1">提交失败，请稍后重试！</h6>
+            <p class="ddw_error21">可能因为网络问题或其他原因导致</p>
+            <a href="javascript:;" class="mj-boBtn1" id="closeFailed" onclick="layer.closeAll();$('.ddw_error21').text('可能因为网络问题或其他原因导致');">点此处关闭！</a>
+        </div>
+    </div>
+</div>
+<div class="mj-boughtM" id="mj-submitteFF">
+    <span class="ms-close mj-close"></span>
+    <div class="mj-bcon f-clearfix">
+        <span class="mj-bconLefts"><img src="<?=StaticDir?>style/img/mj-cimg.jpg" alt=""/></span>
+        <div class="mj-bconRight">
+            <h6 style="color:#ff6600" class="ddw_error1">提交失败，请稍后重试！</h6>
+            <p class="ddw_error2">
+                抱歉！<br/>
+                因长时间未操作，页面已被抓走啦！<br/>
+                <font class="ddw_time">5</font> 秒后将自动刷新…
+            </p>
+            <a href="javascript:;" class="mj-boBtn1" onclick="layer.closeAll();">点此处关闭！</a>
+        </div>
+    </div>
+</div>
+
+<script src="<?=StaticDir?>1.0/js/jquery.lazy.min.js"></script>
+<script type="text/javascript">
+    //图片延时加载
+    $(function() {
+        $("img.lazy").lazyload({
+            //skip_invisible : false,
+            effect : "fadeIn",
+            threshold : 50
+        });
+    });
+
+
+    $(function(){
+        $('#chaofan-mj-nickname').attr('href','<?=UC_URL?>');
+         var login_m = getCookie('uc_mobile');
+        if(login_m){ //账户处链接
+            var privateHtml = '<div class="yzc-account" id="account-name"><a href="'+HOST+'" target="_blank" class="lg-name" id="chaofan-mj-nickname">'+nickname+'<i class="fa fa-sort-desc" aria-hidden="true"></i></a><div class="account-list" id="acc-list"></p><p><a target="_blank" href="'+HOST+'/collect/trade/">我的收藏</a></p><p><a target="_blank" href="'+HOST+'/buyer/myinfo/">我的求购</a></p><p><a href="javascript:;" id="chaofan-mj-logexit">退出登录</a></p></div></div>';
+            $('#_login_no').hide();
+            $('#login_after').html(privateHtml);
+        }else{
+            $('#login_after').hide();
+            $('#_login_no').show();
+        }
+
+    });
+</script>
+</body>
+<!--自己的统计-->
+<script type="text/javascript">
+    document.write(unescape("%3Cscript src='<?=StaticDir?>1.0/js/yzc.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</html>

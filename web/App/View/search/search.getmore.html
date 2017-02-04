@@ -1,0 +1,56 @@
+<? foreach ($searchList as $k => $v) {?>
+    <? $_c_ = explode(',', $v['class']);
+    if ( count($_c_) < 2 ) {
+    ?>
+        <li>
+            <input class="xunjia_data" type="hidden" tid="<?=$v['tid']?>" data_class="<?=$v['class']?>" number="<?=$v['number']?>" remarks="<?echo '商标号：'.$v['number'].';商标名称：'.$v['name']?>">
+            <div>
+                <div class="ms-filterCenter">
+                    <a href="javascript:void(0);" tnumber="<?=$v['number']?>" class="ms-collect <?if($v['isLook']=='1'){echo 'cur';}?>" addmsg="04-加入收藏" webid="11" module="商标列表-第<?=$page?>屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>"><i class="us-icon us-icon20"></i></a>
+                    <span class="ms-filtersImg"><a href="<?=$v['viewUrl']?>" target="_blank"addmsg="01-查看详情" webid="10" module="商标列表-第<?=$page?>屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>">
+                    <img src="<?=$v['imgUrl']?>" onerror="this.src='<?=StaticDir?>images/img1.png'" alt="<?=$v['alt']?>"/></a></span>
+                    <div class="ms-filtersListTxt">
+                        <h6 title="<?=$v['name']?>"><?=$v['name']?mb_substr($v['name'], 0, 10, 'UTF-8'):'-'?></h6>
+                        <p><span><?=$v['class']?>类</span>-<?=$_CLASS[$v['class']]?></p>
+                        <p title="<?=$v['goods']?>"><?=$v['goods']?mb_substr($v['goods'], 0, 14, 'UTF-8'):'-'?></p>
+                    </div>
+                    <div class="ms-filterBtn">
+                        <a href="javascript:void(0);" onclick="xunjia(this);" class="ms-inquiry" addmsg="表单-02-询价" webid="30" module="商标列表-第<?=$page?>屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>">&yen;&nbsp;询&nbsp;价</a>
+                        <a href="javascript:void(0);" onclick="goChat()" class="ms-seller" addmsg="咨询-03-联系卖家" webid="31" module="商标列表-第<?=$page?>屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>"><i class="us-icon us-icon22"></i>联系卖家</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    <? }else{ ?>
+        <li>
+            <input class="xunjia_data" type="hidden" tid="<?=$v['tid']?>" data_class="<?=$v['class']?>" number="<?=$v['number']?>" remarks="<?echo '商标号：'.$v['number'].';商标名称：'.$v['name']?>">
+            <div class="ms-filterMany">
+                <div class="ms-filterCenter">
+                    <a href="javascript:void(0);" tnumber="<?=$v['number']?>" class="ms-collect <?if($v['isLook']=='1'){echo 'cur';}?>" addmsg="04-加入收藏" webid="11" module="商标列表-第<?=$page?>屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>"><i class="us-icon us-icon20"></i></a>
+                    <span class="ms-filtersImg"><a href="<?=$v['viewUrl']?>" target="_blank" addmsg="01-查看详情" webid="10" module="商标列表-第<?=$page?>屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>"><img src="<?=$v['imgUrl']?>" onerror="this.src='<?=StaticDir?>images/img1.png'" alt="<?=$v['alt']?>"/></a></span>
+                    <div class="ms-filtersListTxt">
+                        <h6 title="<?=$v['name']?>"><?=$v['name']?mb_substr($v['name'], 0, 10, 'UTF-8'):'-'?></h6>
+                        <p>共<em><?=count($_c_)?></em>个分类</p>
+                        <p title="<?=$v['goods']?>"><?=$v['goods']?mb_substr($v['goods'], 0, 14, 'UTF-8'):'-'?></p>
+                    </div>
+                    <div class="ms-filterBtn">
+                        <a href="javascript:void(0);" onclick="xunjia(this);" class="ms-inquiry" addmsg="表单-02-询价" webid="30" module="商标列表-第<?=$page?>屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>">&yen;&nbsp;询&nbsp;价</a>
+                        <a href="javascript:void(0);" onclick="goChat()" class="ms-seller" addmsg="咨询-02-联系卖家" webid="31" module="商标列表-第<?=$page?>屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>"><i class="us-icon us-icon22"></i>联系卖家</a>
+                    </div>
+                </div>
+                <div class="ms-sortMain">
+                    <ul class="ms-sortList">
+                    <?foreach ($_c_ as $_k => $_v) {
+                        if ( $_k > 10 ) break;
+                    ?>
+                        <li><span><?=$_v?>类</span>-<?=$_CLASS[$_v]?></li>
+                    <?}?>
+                    </ul>
+                    <div class="ms-sortMore">
+                        <a href="<?=$v['viewUrl']?>">查看更多&nbsp;&gt;</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    <? } ?>
+<? } ?>

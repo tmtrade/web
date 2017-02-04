@@ -1,0 +1,592 @@
+<? require(ViewDir.'/header.html'); ?>
+<link rel="stylesheet" href="<?=StaticDir?>1.0/css/page.css?v=<?=$static_version?>"/>
+<!--移动端的头部 start-->
+
+<header class="yzc-head">
+    <a class="wap-nav" href="/" ><h1><img src="<?=StaticDir?>1.0/images/wap-lg.png"></h1></a>
+    <!--<a class="wap-nav"  href="" >-->
+    <!--<i class="wap-ico1"></i>-->
+    <!--<h2>购买</h2>-->
+    <!--</a>-->
+    <!--<a class="wap-nav"  href="javascript:;">-->
+    <!--<i class="wap-ico2"></i>-->
+    <!--<h2>咨询</h2>-->
+    <!--</a>-->
+
+    <a class="wap-nav wap-menu"  id="menu">
+        <i class="fa fa-list-alt"></i>
+        <h2>导航</h2>
+    </a>
+    <!--点击菜单出现导航弹窗，默认影藏-->
+    <div class="menu-box" id="menu-box">
+        <a href="/" module="菜单1" addmsg="首页">一只蝉首页</a>
+        <a href="<?=UC_URL?>sell/index/" module="菜单2" addmsg="我要出售">我要出售</a>
+        <a href="" module="菜单3" addmsg="购买登记">购买登记</a>
+        <a href="<?=UC_URL?>" module="菜单4" addmsg="我的蝉窝">我的蝉窝</a>
+        <a href="<?=UC_URL?>collect/trade/" module="菜单5" addmsg="出售者平台">我的收藏</a>
+    </div>
+</header>
+<!--移动端的头部 end-->
+
+ <div class="mj-header-nav f-clearfix">
+     <div class="w1180 f-clearfix">
+         <div class="search-box">
+             <div class="f-clearfix">
+                 <input type="text" placeholder="输入你想买的商标名称/商标号/适用服务"/>
+                 <i></i>
+             </div>
+            <ul class="pull-down-box">
+                <li>
+                    按<label>商标名称</label> 搜索“彩虹”的结果
+                </li>
+                <li>
+                    按<label>商标号</label> 搜索“彩虹”的结果
+                </li>
+                <li>
+                    按<label>适用服务</label> 搜索“彩虹”的结果
+                </li>
+            </ul>
+         </div>
+         <p class="head-nav">
+             <a href=""><i class="head-ico1"></i>商标购买</a>
+             <a href=""><i class="head-ico2"></i>商标注册</a>
+             <a href=""><i class="head-ico3"></i>我要买商标</a>
+             <a href=""><i class="head-ico4"></i>我要卖商标</a>
+         </p>
+     </div>
+ </div>
+ <div class="plt-filter f-clearfix">
+     <div class="w1180 f-clearfix">
+         <!-- ms-filters start -->
+         <h3 class="plt-filter-result">符合关键字“<label>xxxxxx </label>”的商品共有 256441487 条</h3>
+         <div class="ms-filters">
+             <div class="ms-filterResults">
+                 <div class="fl">
+                     <span>全部结果&nbsp;&gt;</span>
+                     <? if ( $kw ) { ?>
+                     <em title="<?=$kw_title?>"><?=mb_substr($kw_title,0,12,'utf-8')?><a href="javascript:void(0);" onclick="createUrl('_kw', '','');" addmsg='<?=$kw_title?>' webid="7"><i class="us-icon us-icon23"></i></a></em>
+                     <? } ?>
+                     <? if ( $c ) { ?>
+                     <em title="<?=$c_title?>"><?=mb_substr($c_title,0,12,'utf-8')?><a href="javascript:void(0);" onclick="createUrl('_class', '');" webid="7" addmsg='<?=$c_title?>'><i class="us-icon us-icon23"></i></a></em>
+                     <? } ?>
+                     <? if ( $g ) { ?>
+                     <em title="<?=$g_title?>"><?=mb_substr($g_title,0,12,'utf-8')?><a href="javascript:void(0);" onclick="createUrl('_group', '');" webid="7" addmsg='<?=$g_title?>'><i class="us-icon us-icon23"></i></a></em>
+                     <? } ?>
+                     <? if ( $t ) { ?>
+                     <em title="<?=$t_title?>"><?=mb_substr($t_title,0,12,'utf-8')?><a href="javascript:void(0);" onclick="createUrl('_sT', '');" webid="7" addmsg='<?=$t_title?>'><i class="us-icon us-icon23"></i></a></em>
+                     <? } ?>
+                     <? if ( $sn ) { ?>
+                     <em title="<?=$sn_title?>"><?=mb_substr($sn_title,0,12,'utf-8')?><a href="javascript:void(0);" onclick="createUrl('_sN', '');" webid="7" addmsg='<?=$sn_title?>'><i class="us-icon us-icon23"></i></a></em>
+                     <? } ?>
+                     <? if ( $p ) { ?>
+                     <em title="<?=$p_title?>"><?=mb_substr($p_title,0,12,'utf-8')?><a href="javascript:void(0);" onclick="createUrl('_plat', '');" webid="7" addmsg='<?=$p_title?>'><i class="us-icon us-icon23"></i></a></em>
+                     <? } ?>
+                     <? if ( $d ) { ?>
+                     <em title="<?=$d_title?>"><?=mb_substr($d_title,0,12,'utf-8')?><a href="javascript:void(0);" onclick="createUrl('_date', '');" webid="7" addmsg='<?=$d_title?>'><i class="us-icon us-icon23"></i></a></em>
+                     <? } ?>
+                     <? if ( $l ) { ?>
+                     <em title="<?=$l_title?>"><?=mb_substr($l_title,0,12,'utf-8')?><a href="javascript:void(0);" onclick="createUrl('_label', '');" webid="7" addmsg='<?=$l_title?>'><i class="us-icon us-icon23"></i></a></em>
+                     <? } ?>
+                 </div>
+                 <p class="fr">
+                     共 <i><?=$total?></i>个商品
+                 </p>
+             </div>
+             <div class="bk-shadow"></div>
+             <div class="ms-condSty">
+                 <div class="ms-condition">
+                     <? if ( empty($c) && $kt != 3 ) {?>
+                     <div class="ms-conditionList">
+                         <span>分类<i class="us-icon us-icon24"></i></span>
+                         <div class="ms-conditionList-main groupSty">
+                             <ul class="f-clearfix ms-conditionCheckbox groupSty">
+                                 <?foreach ($_CLASS as $_cls => $_cn) {?>
+                                 <li title="<?=$_cn?>"><input type="checkbox" value="<?=$_cls?>" id="class-checkbox<?=$_cls?>" name="class-checkbox<?=$_cls?>"/>
+                                     <label for="class-checkbox<?=$_cls?>" onclick=""><?=$_cls?>-<?=$_cn?></label></li>
+                                 <?}?>
+
+                             </ul>
+                             <div class="ms-condition-btn">
+                                 <a href="javascript:void(0);" tname="_class" module="分类">确定</a>
+                                 <span onclick="cancelFun(this);">取消</span>
+                             </div>
+                         </div>
+                     </div>
+                     <? } ?>
+                     <? if ( empty($g) && !empty($c) && count(explode(',', $c)) == 1 ) {?>
+                     <div class="ms-conditionList">
+                         <span>群组<i class="us-icon us-icon24"></i></span>
+                             <div class="ms-conditionList-main groupSty">
+                                 <ul class="f-clearfix ms-conditionCheckbox groupSty">
+                                     <?foreach ($_GROUP[$c] as $_grp => $_gn) {?>
+                                     <li title="<?=$_gn?>"><input type="checkbox" id="group-checkbox<?=$_grp?>" value="<?=$_grp?>" />
+                                         <label for="group-checkbox<?=$_grp?>"><?=$_grp?>-<?=mb_substr($_gn, 0, 8, 'UTF-8')?></label></li>
+                                     <?}?>
+                                 </ul>
+                                 <div class="ms-condition-btn">
+                                     <a href="javascript:void(0);" tname="_group" module="群组">确定</a>
+                                     <span onclick="cancelFun(this);">取消</span>
+                                 </div>
+                             </div>
+                         </div>
+                     <? } ?>
+                     <div class="ms-conditionList">
+                         <span>组合类型<i class="us-icon us-icon24"></i></span>
+                         <div class="ms-conditionList-main">
+                             <ul class="f-clearfix ms-conditionCheckbox">
+                                 <?foreach ($_TYPE as $_k => $_v) {?>
+                                 <li><input type="checkbox" value="<?=$_k?>" id="type-checkbox<?=$_k?>">
+                                     <label for="type-checkbox<?=$_k?>"><?=$_v?></label></li>
+                                 <?}?>
+                             </ul>
+                             <div class="ms-condition-btn">
+                                 <a href="javascript:void(0);" tname="_sT" module="组合类型">确定</a>
+                                 <span onclick="cancelFun(this);">取消</span>
+                             </div>
+
+                         </div>
+                     </div>
+                     <? if ( empty($sn) ) {?>
+                     <div class="ms-conditionList">
+                         <span>商标字数<i class="us-icon us-icon24"></i></span>
+                         <div class="ms-conditionList-main">
+
+                             <ul class="f-clearfix ms-conditionCheckbox">
+                                 <?foreach ($_NUMBER as $k => $v) {?>
+                                 <li><input type="checkbox" value="<?=$k?>" id="num-checkbox<?=$k?>" name="num-checkbox<?=$k?>" />
+                                     <label for="num-checkbox<?=$k?>"><?=$v?></label></li>
+                                 <?}?>
+                             </ul>
+                             <div class="ms-condition-btn">
+                                 <a href="javascript:;" tname="_sN" module="商标字数">确定</a>
+                                 <span onclick="cancelFun(this);">取消</span>
+                             </div>
+
+                         </div>
+                     </div>
+                     <? } ?>
+                 </div>
+                 <div class="ms-advancedFilter">
+                     <ul class="f-clearfix">
+                         <? if ( empty($d) ) {?>
+                         <li>
+                             <a href="">注册时间<i class="us-icon us-icon24"></i></a>
+                             <div class="ms-conditionList-main">
+                                 <ul class="f-clearfix ms-conditionRadio">
+                                     <li><a href="javascript:void(0);" >全部</a></li>
+                                     <?foreach ($_DATE as $_k => $_v) {?>
+                                     <li><a  href="javascript:void(0);" onclick="createUrl('_date','<?=$_k?>');return false;" addmsg="单选–<?=$_v?>" webid="5" module='筛选商标注册时间'><?=$_v?></a></li>
+                                     <?}?>
+                                 </ul>
+                             </div>
+                         </li>
+                         <? } ?>
+                         <? if ( empty($p) ) {?>
+                         <li>
+                             <a href="">入驻平台<i class="us-icon us-icon24"></i></a>
+                             <div class="ms-conditionList-main">
+                                 <ul class="f-clearfix ms-conditionRadio">
+                                     <li><a href="javascript:void(0);" >全部</a></li>
+                                     <?foreach ($_PLATFORM as $k => $v) {?>
+                                     <li><a href="javascript:void(0);" onclick="createUrl('_plat','<?=$k?>');return false;" addmsg="单选–<?=$v?>" webid="6" module='筛选商标入驻平台'><?=$v?></a></li>
+                                     <?}?>
+                                 </ul>
+
+                             </div>
+                         </li>
+                         <? } ?>
+                         <? if ( empty($l) ) {?>
+                         <li>
+                             <a href="">特价类型<i class="us-icon us-icon24"></i></a>
+                             <div class="ms-conditionList-main">
+                                 <ul class="f-clearfix ms-conditionRadio">
+                                     <?foreach ($_LABEL as $_k => $_v) {?>
+                                     <li><a  href="javascript:void(0);" onclick="createUrl('_label','<?=$_k?>');return false;" addmsg="单选–<?=$_v?>" webid="5" module='筛选商标特价类型'><?=$_v?></a></li>
+                                     <?}?>
+                                 </ul>
+                             </div>
+                         </li>
+                         <? } ?>
+                     </ul>
+                     <p class="ms-adv-price">
+                         价格在<input type="text" placeholder="￥"/>-<input type="text" placeholder="￥"/>
+                         <a>确定</a>
+                     </p>
+                 </div>
+             </div>
+         </div>
+         <!-- ms-filters end -->
+
+     </div>
+ </div>
+ <div class="plt-lit-main w1180 f-clearfix">
+     <div class="ms-filtersList">
+     <?if ( !empty($searchList) ){?>
+         <ul class="f-clearfix">
+         <? foreach ($searchList as $k => $v) {?>
+         <? $_c_ = explode(',', $v['class']);
+            if ( count($_c_) < 2 ) {
+         ?>
+         <li>
+             <input class="xunjia_data" type="hidden" tid="<?=$v['tid']?>" data_class="<?=$v['class']?>" number="<?=$v['number']?>" remarks="<?echo '商标号：'.$v['number'].';商标名称：'.$v['name']?>">
+             <div>
+                 <div class="ms-filterCenter">
+                     <a href="javascript:void(0);" tnumber="<?=$v['number']?>" class="ms-collect <?if($v['isLook']=='1'){echo 'cur';}?>" addmsg="04-加入收藏" webid="11" module="商标列表-第1屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>"><i class="us-icon us-icon20"></i></a>
+                     <span class="ms-filtersImg">
+                         <a href="<?=$v['viewUrl']?>" target="_blank" addmsg="01-查看详情" webid="10" module="商标列表-第1屏-<?=($k+1)>9? ($k+1) : '0'.($k+1);?>" target="_blank">
+                             <img src="<?=$v['imgUrl']?>" onerror="this.src='<?=StaticDir?>images/img1.png'" alt="<?=$v['alt']?>"/>
+                         </a>
+                     </span>
+                     <div class="ms-filtersListTxt">
+                         <p class="price"><b>¥ <?if($v['priceType']==2){echo '议价';}elseif($v['isOffprice']==2){echo $v['price']*1.1;}else{echo $v['salePrice'];}?></b><i></i></p>
+                         <h6 title="<?=$v['name']?>"><?=$v['name']?mb_substr($v['name'], 0, 10, 'UTF-8'):'-'?></h6>
+                         <span><?=$v['class']?>类-<?=$_CLASS[$v['class']]?></span>
+                         <p title="<?=$v['goods']?>"><?=$v['goods']?mb_substr($v['goods'], 0, 14, 'UTF-8'):'-'?></p>
+                     </div>
+                     <div class="ms-filterBtn">
+                         <a href="javascript:void(0);" onclick="xunjia(this);" class="ms-inquiry" >¥&nbsp;询&nbsp;价</a>
+                         <a href="javascript:void(0);" onclick="goChat()" class="ms-seller" ><i class="us-icon us-icon22"></i>联系卖家</a>
+                     </div>
+                 </div>
+             </div>
+         </li>
+         <? }else{ ?>
+         <? } ?>
+
+         <? } ?>
+             </ul>
+         <div class="mj-pages">
+             <?=$pageBar?>
+         </div>
+         <? } ?>
+     </div>
+
+     <div class="picScroll-left">
+          <div class="plt-ab-rg">
+                             <div class="ms-recommend f-clearfix f-hidden">
+                                 <h3>推荐商品</h3>
+                                 <ul>
+                                     <?foreach ($channel['adList'] as $k => $v) {?>
+                                     <li>
+                                         <a href="<?=$v['link']?>" target="_blank" webid="5" addmsg="01-查看详情" module="筛选页推荐商品-<?=$k+1?>">
+                                             <img src="<?=empty($v['pic'])?'':TRADE_URL.$v['pic']?>" onerror="this.src='<?=StaticDir?>images/img1.png'" alt="<?=($v['alt']?$v['alt']:$v['desc'])?>"/>
+                                             <span>推荐</span>
+                                         </a>
+
+                                     </li>
+                                     <?}?>
+                                 </ul>
+                             </div>
+                             <div class="ms-sale-price f-clearfix f-hidden">
+                                 <h3>特价商品</h3>
+                                 <ul>
+                                     <li>
+                                        <span>
+                                            <img src="<?=StaticDir?>1.0/images/fit-pic4.png">
+                                        </span>
+                                         <div class="ms-sale-box">
+                                             <p class="price">
+                                                 <b>¥ 40000</b>
+                                                 <s>原价：¥ 80000</s>
+                                             </p>
+                                             <p class="intr">
+                                                 轰到底
+                                                 <em>1类-化工原料</em>
+                                             </p>
+                                         </div>
+                                     </li>
+                                     <li>
+                                        <span>
+                                            <img src="<?=StaticDir?>1.0/images/fit-pic4.png">
+                                        </span>
+                                         <div class="ms-sale-box">
+                                             <p class="price">
+                                                 <b>¥ 40000</b>
+                                                 <s>原价：¥ 80000</s>
+                                             </p>
+                                             <p class="intr">
+                                                 轰到底
+                                                 <em>1类-化工原料</em>
+                                             </p>
+                                         </div>
+                                     </li>
+                                     <li>
+                                        <span>
+                                            <img src="<?=StaticDir?>1.0/images/fit-pic4.png">
+                                        </span>
+                                         <div class="ms-sale-box">
+                                             <p class="price">
+                                                 <b>¥ 40000</b>
+                                                 <s>原价：¥ 80000</s>
+                                             </p>
+                                             <p class="intr">
+                                                 轰到底
+                                                 <em>1类-化工原料</em>
+                                             </p>
+                                         </div>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </div>
+     </div>
+ </div>
+
+<!--移动版的底部-->
+<div class="mj-footer-wap">
+    <div class="f-clearfix">
+        <div class="ft-wap-lf">
+            <div class="search-box">
+                <div class="f-clearfix">
+                    <input type="text" placeholder="输入你想买的商标名称/商标号/适用服务">
+                    <i></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="ft-wap-rg">
+            <p>
+                <a href="" class="btm-lf-tel">
+                    <span><img src="<?=StaticDir?>1.0/images/btm-tel1.png"></span>
+                    <label>咨询</label>
+                </a>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+<script src="<?=StaticDir?>script/objurl.js?v=<?=$static_version?>"></script>
+
+<script type="text/javascript">
+    //顶部点击菜单出现弹窗；
+    var  tapCount;
+    tapCount=0;
+    $("#menu").on('click',function(){
+        tapCount++;
+        if(tapCount==1){
+            $("#menu-box").addClass("slideInDown animated");
+            $("#menu-box").css({"display":"block"});
+            $(this).addClass("on");
+            $(document).on('click',function(){
+                $("#menu-box").removeClass("slideInDown animated");
+                $("#menu-box").hide();
+                tapCount=0;
+            });
+            tapCount=1;
+        }
+        if(tapCount==2){
+            $("#menu-box").removeClass("slideInDown animated");
+            $("#menu-box").hide();
+            $(this).removeClass("on");
+            tapCount=0;
+        }
+    })
+
+    $("#menu").on('click',function(e){
+        stopPropagation(e);
+    });
+    //下拉框输入有历史记录
+    $(".search-box").find("input").on("keyup",function(){
+        if($(this).val().length<=0){
+            $(".pull-down-box").hide();
+        }
+        else{
+            $(".pull-down-box").show();
+        }
+    })
+    $(".search-box").find("input").blur(function(){
+        $(".pull-down-box").hide();
+    })
+    $(".search-box").find("input").focus(function(){
+        $(".pull-down-box").show();
+    })
+    //右侧广告栏滚动的效果
+//    jQuery(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul.picList",autoPage:true,effect:"left",autoPlay:true,vis:1});
+    //初始化更多
+    var minHeight = 40; //最小高度
+    var conditionDom = $('.ms-condition');
+    var conditionList = conditionDom.find('.ms-conditionList-main');
+    var setHeight = 'ms-setHeight';
+    var curCls = 'cur';
+    function initMore(isTure){
+        conditionList.each(function(){
+            var $this = $(this);
+            var conditionMore = '';
+            var conditionBtn = $this.find('.moreBtn');
+            var conditionListHeight = $this.innerHeight();
+            if(conditionListHeight > minHeight){
+                $this.addClass(setHeight);
+                isTure ? conditionMore = '<span class="ms-conditionMore" onclick="moreFun(this);">更多</span>' : true;
+            }
+            conditionBtn.append(conditionMore);
+        });
+    }
+    initMore(true);
+
+    //多选
+    function multi(dom){
+        var $this = $(dom);
+        var moreDom = $this.next();
+        var parent = $this.parent().parent();
+        parent.removeClass(setHeight).addClass(curCls);
+        resetFun(parent);
+        if(moreDom.hasClass('ms-conditionMore')){
+            moreDom.addClass(curCls).text('收起');
+        }
+    }
+
+    //取消多选
+    function cancelFun(dom){
+        var $this = $(dom);
+        var parent = $this.parent().parent();
+        var moreDom = parent.find('.ms-conditionMore');
+        parent.removeClass(curCls);
+        moreDom.removeClass(curCls).text('更多');
+        initMore(false);
+        $(".bk-shadow,.ms-setHeight").hide();
+        $("body,html").css({"overflow":"auto"})
+    }
+
+    //更多
+    function moreFun(dom){
+        var $this = $(dom);
+        var parent = $this.parent().parent();
+        resetFun(parent);
+        initMore(false);
+        if(!$this.hasClass(curCls)){
+            parent.removeClass(setHeight);
+            $this.addClass(curCls).text('收起');
+        }else{
+            parent.addClass(setHeight);
+            $this.removeClass(curCls).text('更多');
+        }
+    }
+    //重置
+    function resetFun(dom){
+        dom.parent().siblings().find('.ms-conditionList-main').removeClass(curCls)
+                .find('.ms-conditionMore').removeClass(curCls).text('更多');
+    }
+    $(".ms-condition-btn a").click(function(e){
+        var inputDom = $(this).parent().prev().find(':checked');
+        var str = '';
+        inputDom.each(function(){
+            str += ","+$(this).val();
+        })
+        str = str ? str.substr(1) : '';
+        if ( str ){
+            var tname = $(this).attr('tname');
+            var lables = $(this).parent().prev().find(':checked').siblings('label');
+            var  temp = '';
+            lables.each(function(){
+                temp += ","+$(this).text();
+            });
+            var module = $(this).attr('module');
+            setEvent("筛选"+module,"多选 –"+temp);
+            sendBehavior(13,ptype, e.pageX, e.pageY,temp);//保存操作信息
+            createUrl(tname, str);
+        }
+    });
+    $(".ms-conditionList > span").each(function(){
+        $(this).click(function(){
+            $(".ms-setHeight").hide();
+            $(this).siblings(".ms-setHeight").show();
+            $(".bk-shadow").show();
+            $("body,html").css({"overflow":"hidden"})
+        })
+    })
+    $(".bk-shadow").click(function(){
+        $(this).hide();
+        $("body,html").css({"overflow":"auto"})
+    })
+
+    ////////////////////////////////////////////////////////////////////////////////
+    var _whereStr   = "<?=$whereStr?>";
+
+    //处理URL
+    function createUrl(parameter,value,kt){
+        $(this).addClass("cilk");
+
+        var obj = new objURL('/?'+_whereStr);
+
+        switch(parameter){
+            case "_kw" :
+                obj.set('kw', value);
+                obj.set('kt', kt);
+                obj.set('n', 2);
+                break;
+            case "_class" :
+                obj.set('c', value);
+                if ( value == '' || value == 0 ) obj.set('g', '');
+                break;
+            case "_group" :
+                obj.set('g', value);
+                break;
+            case "_plat" :
+                obj.set('p', value);
+                break;
+            case "_sT" :
+                obj.set('t', value);
+                break;
+            case "_sN" :
+                obj.set('sn', value);
+                break;
+            case "_name" :
+                obj.set('n', value);
+                break;
+            case "_date" :
+                obj.set('d', value);
+                break;
+            case "_label" :
+                obj.set('l', value);
+                break;
+            case "_page" :
+                obj.set('pg', value);
+                break;
+        }
+        var params = obj.strparams();
+        var index = layer.load(1, {
+            shade: [0.1,'#fff'] //0.1透明度的白色背景
+        });
+        $.ajax({
+            type : 'post',
+            url  : '/select/getSearchKeyWord/',
+            data : params,
+            dataType : 'json',
+            success : function (data){
+                var allurl = data.url;
+                //alert(allurl);layer.close(index);return;
+                window.location.href = allurl;
+                setTimeout(function(){
+                    layer.close(index);
+                },300);
+            },
+            error : function (data){
+                layer.close(index);
+                layer.msg('操作失败，请稍后重试。', {time: 1000});
+            }
+        });
+    }
+
+    function reSearch()
+    {
+        var _s = $.trim( $("#research").val() );
+        if ( _s == '' ) return false;
+        createUrl('_kw', _s, '1');
+    }
+
+    //发布回调
+    function submitDataCallback(Obj){
+        $.each(Obj,function(i,n){
+            if(n.code!=-1){
+                //弹出成功框
+                getLayer($('#mj-submitteS'));
+                $('.gb-ss').click();//关闭此弹窗
+            }else{
+                //弹出失败框
+                getLayer($('#mj-submitteF'));
+            }
+        });
+    }
+
+</script>
+<? require(ViewDir.'/footer.html'); ?>

@@ -1,0 +1,655 @@
+.uj_icon1{
+
+    width: 12px;
+
+    height: 14px;
+
+    background-image: url("../images/mj-icon1.png");
+
+}
+
+.uj_icon2{
+
+    width: 18px;
+
+    height: 18px;
+
+    background-image: url("../images/mj-icon2.png");
+
+}
+.uj_icontj{
+    width: 18px;
+
+    height: 18px;
+
+    background-image: url("../images/mj-ictj.png");
+}
+
+.uj_icon3{
+
+    width: 18px;
+
+    height: 18px;
+
+    background-image: url("../images/mj-icon3.png");
+
+}
+
+.uj_icon4{
+
+    width:17px;
+
+    height:16px;
+
+    background-image: url("../images/mj-icon4.png");
+    background-size: 100% 100%;
+
+}
+
+.uj_icon4s{
+
+    width: 23px;
+
+    height: 22px;
+
+    background-image: url("../images/mj-icon4s.png");
+
+}
+
+.uj_icon5{
+
+    width: 28px;
+
+    height: 21px;
+
+    background: url("../images/mj-icon5.png") no-repeat center;
+
+}
+
+.uj_icon6{
+
+    width: 27px;
+
+    height: 27px;
+
+    background: url("../images/mj-icon6.png") no-repeat center;
+
+}
+
+.uj_icon7{
+
+    width: 9px;
+
+    height: 5px;
+
+    background-image: url("../images/mj-icon7.png");
+
+}
+
+.uj_icon8{
+
+    width: 19px;
+
+    height: 19px;
+
+    background-image: url("../images/mj-icon8.png");
+
+}
+
+.uj_icon9{
+
+    width: 20px;
+
+    height: 14px;
+
+    background-image: url("../images/mj-icon9.png");
+
+    margin-right:3px;
+
+}
+
+.uj_icon10{
+
+    width: 5px;
+
+    height: 9px;
+
+    background-image: url("../images/mj-icon10.png");
+
+    box-shadow: #fc7d28;
+
+}
+
+.uj_icon11{
+
+    width: 49px;
+
+    height: 53px;
+
+    background-image: url("../images/mj-icon11.png");
+
+}
+
+.uj_icon12{
+
+    width: 12px;
+
+    height: 24px;
+
+    background-image: url("../images/mj-icon12.png");
+
+}
+
+.uj_icon13{
+
+    width: 16px;
+
+    height: 19px;
+
+    background-image: url("../images/mj-icon13.png");
+
+}
+
+
+
+.uj_icon14{
+
+    width: 20px;
+
+    height: 21px;
+
+    background-image: url("../images/mj-icon14.png");
+
+}
+
+.us-icon14 {
+
+    width: 23px;
+
+    height: 21px;
+
+    background-image: url("../images/icon14.png");
+
+}
+
+/*.uj_icon15{
+
+    width: 16px;
+
+    height: 19px;
+
+    background-image: url("../images/mj-icon15.png");
+
+}
+
+.uj_icon16{
+
+    width: 20px;
+
+    height: 21px;
+
+    background-image: url("../images/mj-icon16.png");
+
+}*/
+
+.uj_icon17{
+
+    width: 15px;
+
+    height: 15px;
+
+    background-image: url("../images/mj-icon17.png");
+
+}
+
+.uj_icon18{
+
+    width: 65px;
+
+    height: 65px;
+
+    background-image: url("../images/mj-icon18.png");
+
+}
+
+.uj_icon19{
+
+    width: 65px;
+
+    height: 65px;
+
+    background-image: url("../images/mj-icon19.png");
+
+}
+
+.uj_icon20{
+
+    width: 65px;
+
+    height: 65px;
+
+    background-image: url("../images/mj-icon20.png");
+
+}
+
+.uj_icon21{
+
+    width: 65px;
+
+    height: 65px;
+
+    background-image: url("../images/mj-icon21.png");
+
+}
+
+.uj_icon22{
+
+    width: 8px;
+
+    height: 12px;
+
+    background-image: url("../images/mj-icon22.png");
+
+    margin-left: 3px;
+
+}
+
+.uj_icon22s{
+
+    width: 8px;
+
+    height: 12px;
+
+    background-image: url("../images/mj-icon22s.png");
+
+    margin-left: 3px;
+
+}
+
+
+
+.uj_icon27{
+
+    width: 8px;
+
+    height: 5px;
+
+    background-image: url("../images/mj-icon27.png");
+
+}
+
+.uj_icon28{
+
+    width: 16px;
+
+    height: 14px;
+
+    background-image: url("../images/mj-icon28.png");
+
+}
+
+.uj_icon29{
+
+    width: 13px;
+
+    height: 14px;
+
+    background-image: url("../images/mj-icon29.png");
+
+}
+
+.uj_icon30{
+
+    width: 18px;
+
+    height: 18px;
+
+    background-image: url("../images/mj-icon30.png");
+
+    margin-right: 5px;
+	margin-bottom: 3px;
+
+}
+
+.uj_icon31{
+
+    width: 13px;
+
+    height: 20px;
+
+    background-image: url("../images/mj-icon31.png");
+
+    margin-right: 5px;
+
+}
+
+.uj_icon32{
+
+    width: 62px;
+
+    height: 62px;
+
+    background-image: url("../images/mj-icon32.png");
+
+}
+
+.uj_icon33{
+
+    width: 62px;
+
+    height: 62px;
+
+    background-image: url("../images/mj-icon33.png");
+
+}
+
+.uj_icon34{
+
+    width: 62px;
+
+    height: 62px;
+
+    background-image: url("../images/mj-icon34.png");
+
+}
+
+.uj_icon35{
+
+    width: 62px;
+
+    height: 62px;
+
+    background-image: url("../images/mj-icon35.png");
+
+}
+
+.uj_icon36{
+
+    width: 15px;
+
+    height: 15px;
+
+    background-image: url("../images/mj-icon36.png");
+
+    margin-right: 5px;
+
+}
+
+.uj_icon37{
+
+    width: 15px;
+
+    height: 15px;
+
+    background-image: url("../images/mj-icon37.png");
+
+    margin-right: 5px;
+
+}
+
+.uj_icon38{
+
+    width: 15px;
+
+    height: 15px;
+
+    background-image: url("../images/mj-icon38.png");
+
+    margin-right: 5px;
+
+}
+
+.uj_icon39{
+
+    width: 15px;
+
+    height: 15px;
+
+    background-image: url("../images/mj-icon39.png");
+
+    margin-right: 5px;
+
+}
+
+.uj_icon40{
+
+    width: 15px;
+
+    height: 15px;
+
+    background-image: url("../images/mj-icon40.png");
+
+    margin-right: 5px;
+
+}
+
+.uj_icon41{
+
+    width: 15px;
+
+    height: 15px;
+
+    background-image: url("../images/mj-icon41.png");
+
+    margin-right: 5px;
+
+}
+
+.uj_icon42{
+
+    width: 15px;
+
+    height: 16px;
+
+    background-image: url("../images/mj-icon42.png");
+
+    margin-right: 5px;
+
+}
+
+.uj_icon43{
+
+    width: 18px;
+
+    height: 16px;
+
+    background-image: url("../images/mj-icon43.png");
+
+    margin-right: 5px;
+
+}
+
+.uj_icon44{
+
+    width: 14px;
+
+    height: 14px;
+
+    background-image: url("../images/mj-icon44.png");
+
+    margin-right: 10px;
+
+}
+
+.uj_icon45{
+
+    width: 36px;
+
+    height: 36px;
+
+    background-image: url("../images/mj-icon45.png");
+
+    margin-right: 10px;
+
+}
+
+.uj_icon46{
+
+    width: 34px;
+
+    height: 34px;
+
+    background-image: url("../images/mj-icon46.png");
+
+    margin-right: 10px;
+
+}
+
+.uj-icon4 {
+
+    width: 18px;
+
+    height: 16px;
+
+    background-image: url("../images/icon4.png");
+
+    margin-top: 5px;
+
+}
+
+.uj-icon5 {
+
+    width: 17px;
+
+    height: 16px;
+
+    background-image: url("../images/tp-sel-ico2.png");
+
+    margin-top:3px;
+
+}
+
+.us-icon6 {
+
+    width: 25px;
+
+    height: 25px;
+
+    background-image: url("../images/icon6.png");
+
+    margin-right: 10px;
+
+}
+
+.us-icon {
+
+    display: inline-block;
+
+    vertical-align: middle;
+
+    overflow: hidden;
+
+}
+
+
+
+.ul-icon1{
+
+    width: 16px;
+
+    height: 16px;
+
+    background-image: url("../images/ul-icon1.png");
+
+}
+
+.ul-icon2{
+
+    width: 11px;
+
+    height: 20px;
+
+    background-image: url("../images/ul-icon2.png");
+
+}
+
+.us-icon19 {
+
+    width: 17px;
+
+    height: 17px;
+
+    background-image: url("../images/icon19.png");
+
+    margin: -3px 15px 0 0;
+
+}
+.us-icon-err {
+
+    width: 14px;
+
+    height: 14px;
+
+    background-image: url("../images/icon19-1.png");
+
+    margin: -3px 5px 0 0;
+
+}
+
+.us-icon15 {
+
+    width: 19px;
+
+    height: 17px;
+
+    background-image: url("../images/icon15.png");
+
+}
+
+.us-iconmi{
+
+    width: 14px;
+
+    height: 18px;
+
+    background-image: url("../images/mj-iconmi.png");
+
+}
+
+.mj-iconj1{
+
+    width: 7px;
+
+    height: 4px;
+
+    background-image: url("../images/j-1.png");
+
+    margin-left: 5px;
+
+}
+
+
+.us-icon20{
+    width: 16px;
+    height: 14px;
+   /* background-image: url("../images/xin.png");*/
+}
+.us-icon21{
+    width: 19px;
+    height: 19px;
+    background-image: url("../images/us-icon2.png");
+    margin-left: 5px;
+    margin-top: 2px;
+
+}
+.us-icon21:hover{
+    background-image: url("../images/us-icon2-1.png");
+}
+.us-icon22{
+    width: 12px;
+    height: 14px;
+    background-image: url("../images/us-icon1.png");
+    margin: -3px 3px 0 0;
+}
+.us-icon23{
+    width: 12px;
+    height: 12px;
+    background-image: url("../images/us-icon4.png");
+    margin: -3px 0 0 5px;
+}
+.us-icon24{
+    width: 7px;
+    height: 4px;
+    background-image: url("../images/us-icon3.png");
+    margin: -2px 0 0 7px;
+}
