@@ -5,3 +5,4 @@ web/Resource/Log/Error/
 web/Config/Db/
 web/Config/Extension/service.config.php
 web/Config/app.config.php
+web/Config_o/
